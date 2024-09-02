@@ -1,4 +1,4 @@
-# Gerador de Hierarquia de Palavras
+# Gerador de Hierarquia de Palavras (JSON initialzr)
 
 Este é um projeto de interface web desenvolvido com React, TypeScript, Tailwind CSS e Next.js, que permite ao usuário criar uma hierarquia de palavras. A aplicação permite a criação de múltiplos níveis de hierarquia, bem como o download da estrutura em formato JSON.
 
@@ -26,8 +26,8 @@ Este é um projeto de interface web desenvolvido com React, TypeScript, Tailwind
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/hierarquia-de-palavras.git
-   cd hierarquia-de-palavras
+   git clone https://github.com/seu-usuario/gerador-json.git
+   cd gerador-json
    ```
 
 2. **Instale as dependências:**
@@ -71,20 +71,22 @@ Este é um projeto de interface web desenvolvido com React, TypeScript, Tailwind
   }
 }
 ```
+## Interface do projeto
+
 
 ## Fluxo de Branches
 
-Este projeto utiliza duas branches principais: `development` e `main`.
+Este projeto utiliza duas branches principais: `develop` e `production`.
 
-### `main`
+### `develop`
 
-- A branch `main` é a branch principal do projeto.
+- A branch `develop` é a branch principal do projeto.
 - Ela sempre contém a principal do código que pode ir à produção.
-- Nenhuma mudança deve ser feita diretamente na `main`.
+- Nenhuma mudança deve ser feita diretamente na `develop`.
 
-### `development`
+### `production`
 
-- A branch `development` é usada para o desenvolvimento ativo.
-- Todas as novas funcionalidades, correções de bugs ou melhorias devem ser desenvolvidas em branches individuais baseadas na `development`.
-- Após o desenvolvimento e testes completos, essas branches devem ser mescladas de volta na `develop`.
-- Depois que várias features e correções de bugs foram integradas e testadas na `develop`, uma nova versão principal pode ser mesclada para a `main`.
+- A branch `production` é usada para o desenvolvimento ativo.
+- Todas as novas funcionalidades, correções de bugs ou melhorias devem ser desenvolvidas em branches individuais baseadas na `production`.
+- Após o desenvolvimento e testes completos, essas branches devem ser mescladas de volta na `production`.
+- Depois que várias features e correções de bugs foram integradas e testadas na `production`, uma nova versão principal pode ser mesclada para a `develop`.
