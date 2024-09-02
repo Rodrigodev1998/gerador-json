@@ -11,6 +11,7 @@ const HierarchyBuilder: React.FC = () => {
   const [hierarchy, setHierarchy] = useState<HierarchyNodeType[]>([]);
 
   const addRootNode = () => {
+    if (!nodeRootKeyName) return;
     setHierarchy([...hierarchy, { key: nodeRootKeyName, children: [] }]);
     setNodeRootKeyName('')
   };
@@ -37,7 +38,14 @@ const HierarchyBuilder: React.FC = () => {
             value={nodeRootKeyName}
             onChange={(e) => setNodeRootKeyName(e.target.value)}
           />
-          <button onClick={addRootNode} className="bg-green-500 text-white px-4 py-2 rounded">
+          <button onClick={addRootNode} 
+          className={`px-4 py-2 rounded text-white ${
+            nodeRootKeyName
+              ? 'bg-green-500 hover:bg-green-600'
+              : 'bg-gray-300 cursor-not-allowed'
+          }`}
+          disabled={!nodeRootKeyName}
+          >
             Adicionar raiz
           </button>
         </div>
@@ -55,14 +63,23 @@ const HierarchyBuilder: React.FC = () => {
           
         </div>
       </div>
+      <div className="w-[2px] bg-gray-300 mx-4 lg:mx-0"></div>
       <div className="flex-1 p-4 border rounded bg-gray-100 overflow-y-auto max-h-[80vh]">
         <div className='flex items-center justify-between mb-4'>
           <h3 className="text-lg font-bold">JSON:</h3>
-          <button onClick={saveHierarchy} className=" bg-blue-500 text-white px-4 py-2 rounded">
+          <button 
+          onClick={saveHierarchy} 
+          className={`px-4 py-2 rounded text-white ${
+            hierarchy.length > 0
+              ? 'bg-blue-500 hover:bg-blue-600'
+              : 'bg-gray-300 cursor-not-allowed'
+          }`}
+          disabled={hierarchy.length === 0}
+          >
             <FiDownload size={16}/>
           </button>
         </div>
-        <pre className="text-sm bg-white p-2 rounded overflow-x-auto">
+        <pre className="text-sm bg-gray-700 text-white p-2 rounded overflow-x-auto">
           {JSON.stringify(convertArrayToTree(hierarchy), null, 2)}
         </pre>
       </div>
