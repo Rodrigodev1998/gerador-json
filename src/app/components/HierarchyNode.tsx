@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { HierarchyNode as HierarchyNodeType } from '../types/HierarchyNode';
 import { removeNode } from '../utils/removeNode';
 import { replaceNodeInTree } from '../utils/replaceNodeInTree';
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiTrash } from 'react-icons/fi';
 
 interface HierarchyNodeProps {
   node: HierarchyNodeType;
@@ -82,19 +82,19 @@ const HierarchyNode: React.FC<HierarchyNodeProps> = ({
           onClick={() => setAddingNodeChild(true)}
           className="bg-blue-500 text-white px-2 py-1 rounded w-full sm:w-auto flex items-center"
         >
-          <FiPlus size={16} /> filho
+          <FiPlus size={14} /> filho
         </button>
         <button
           onClick={() => setAddingListItem(true)}
-          className="bg-green-500 text-white px-2 py-1 rounded w-full sm:w-auto"
+          className="bg-green-500 text-white px-2 py-1 rounded w-full sm:w-auto flex items-center"
         >
-          Adicionar Item
+          <FiPlus size={14}/> Item
         </button>
         <button
           onClick={() => removeNodeItem(thisNode.key)}
-          className="bg-red-500 text-white px-2 py-1 rounded w-full sm:w-auto"
+          className="bg-red-500 text-white px-2 py-2 rounded w-full sm:w-auto flex items-center"
         >
-          Remover
+          <FiTrash size={14}/>
         </button>
       </div>
 
